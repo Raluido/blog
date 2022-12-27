@@ -86,7 +86,6 @@ header ul li:nth-child(-n + 6) {
 .mainStructure {
     padding: 2em 2rem;
     display: flex;
-    min-height: 50vh;
 }
 
 .mainStructure main {
@@ -140,6 +139,10 @@ header ul li:nth-child(-n + 6) {
     padding: 0.5em;
     background-color: darkgoldenrod;
     color: white;
+}
+
+.mainStructure .lastPost {
+    max-height: 60vh;
 }
 
 footer {

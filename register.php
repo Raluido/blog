@@ -1,15 +1,22 @@
 <?php
-session_start();
+
 if (isset($_POST)) {
-    $name = isset($_POST['name']) ? $_POST['name'] : false;
-    $surname = isset($_POST['surname']) ? $_POST['surname'] : false;
-    $email = isset($_POST['email']) ? $_POST['email'] : false;
-    $password = isset($_POST['password']) ? $_POST['password'] : false;
+    // connect to db
+    require_once 'assets/includes/connection.php';
+
+    if (!isset($_SESSION)) {
+        session_start();
+    }
+
+    $name = isset($_POST['name']) ? mysqli_real_escape_string($db, $_POST['name']) : false;
+    $surname = isset($_POST['surname']) ? mysqli_real_escape_string($db, $_POST['surname']) : false;
+    $email = isset($_POST['email']) ? mysqli_real_escape_string($db, trim($_POST['email'])) : false;
+    $password = isset($_POST['password']) ? mysqli_real_escape_string($db, $_POST['password']) : false;
 
     // errores
     $errors = array();
 
-    // validate the data before save on db
+    // validate the data before saving on db
     if (!empty($name) && !is_numeric($name) && !preg_match("/[0-9]/", $name)) {
         $validatedName = true;
     } else {
@@ -41,8 +48,21 @@ if (isset($_POST)) {
     $saveUser = false;
     if (count($errors) == 0) {
         $saveUser = true;
+
+        // pass hash
+
+        $savePassword = password_hash($password, PASSWORD_BCRYPT, ['cost' => 4]);
+        $sql = "INSERT INTO users VALUES(null, '$name', '$surname', '$email', '$savePassword', CURDATE())";
+
+        try {
+            mysqli_query($db, $sql);
+            $_SESSION['completed'] = "El registro se ha completado con éxito";
+        } catch (\Throwable $th) {
+            $_SESSION['errors']['general'] = "Fallo al guardar el usuario";
+        }
     } else {
         $_SESSION['errors'] = $errors;
-        header('Location: index.php');
     }
 }
+
+header('Location: index.php');
