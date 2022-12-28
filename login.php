@@ -35,3 +35,5 @@ if (!empty($email)) {
 } else {
     $_SESSION['errors']['login'] = "Debe rellenar el campo email";
 }
+
+header('Location: index.php');

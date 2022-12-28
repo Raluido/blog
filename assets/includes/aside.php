@@ -3,6 +3,9 @@
 <aside>
     <div class="">
         <h4>Entrar en la web</h4>
+        <?php echo isset($_SESSION['errors']['login']) ? "<div class='alert error'>" . $_SESSION['errors']['login'] . "</div>" : ''; ?>
+        <?php echo isset($_SESSION['user']) ? "<div class='correct'>Bienvenido " . $_SESSION['user']['name'] . "</div>" : ''; ?>
+        <?php echo isset($_SESSION['user']) ? "<a class='closeSession' href='./assets/includes/close.php'><button>Salir</button></a>" : ''; ?>
         <form method="POST" action="login.php" enctype="multipart/form-data">
             <div class="formElement">
                 <label for="email">Email:</label>
@@ -12,7 +15,9 @@
                 <label for="password">Contraseña:</label>
                 <input type="password" name="password" required />
             </div>
-            <input type="submit" />
+            <div class="submitInputs">
+                <input type="submit" value="Entrar" />
+            </div>
         </form>
     </div>
 
@@ -41,7 +46,9 @@
                 <input type="password" name="password" required />
                 <?php echo isset($_SESSION['errors']) ?  showError($_SESSION['errors'], 'password') : ''; ?>
             </div>
-            <input type="submit" name="submit" value="register" />
+            <div class="submitInputs">
+                <input type="submit" name="submit" value="Registrar" />
+            </div>
         </form>
         <?php deleteErrors(); ?>
     </div>

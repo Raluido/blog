@@ -123,7 +123,10 @@ header ul li:nth-child(-n + 6) {
     margin-top: 1em;
 }
 
-.mainStructure form>input {
+
+.mainStructure form .submitInputs input,
+.mainStructure aside .closeSession button {
+    display: block;
     margin: 1em auto 0em auto;
     background-color: darkgoldenrod;
     color: white;
