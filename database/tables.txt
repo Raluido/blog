@@ -1,0 +1,27 @@
+CREATE TABLE users (
+    id          int(255) auto_increment not null,
+    name        varchar(100) not null,
+    surname     varchar(100) not null,
+    email       varchar(255) not null,
+    password    varchar(255) not null,
+    date        date not null,
+    CONSTRAINT pk_users PRIMARYKEY(id)
+);
+
+CREATE TABLE cathegories (
+    id          int(255) auto_increment not null,
+    name        varchar(100) not null,
+    CONSTRAINT pk_cathegories(id)
+);
+
+CREATE TABLE posts (
+    id              int(255) auto_increment not null,
+    user_id         int(255),
+    cathegory_id    int(255),
+    title           varchar(255) not null,
+    description     MEDIUMTEXT,
+    date            date not null,
+    CONSTRAINT pk_posts PRIMARYKEY(id),
+    CONSTRAINT fk_post_user FOREINGKEY(user_id) REFERENCES users(id), 
+    CONSTRAINT fk_post_cathegory FOREINGKEY(cathegory_id) REFERENCES cathegories(id)
+);
