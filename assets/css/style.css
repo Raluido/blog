@@ -125,13 +125,32 @@ header ul li:nth-child(-n + 6) {
 
 
 .mainStructure form .submitInputs input,
-.mainStructure aside .closeSession button {
+.mainStructure aside button
+ {
     display: block;
     margin: 1em auto 0em auto;
-    background-color: darkgoldenrod;
-    color: white;
     padding: 0.3em;
     cursor: pointer;
+}
+
+.mainStructure .mainButtons {
+    background-color: darkgoldenrod;
+    color: white;
+}
+
+.mainStructure .newPost {
+    background-color: green;
+    color: white;
+}
+
+.mainStructure .newCathegory {
+    background-color: blue;
+    color: white;
+}
+
+.mainStructure .userData {
+    background-color: gray;
+    color: white;
 }
 
 .mainStructure .showAll a {

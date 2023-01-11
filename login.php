@@ -1,8 +1,10 @@
 <?php
 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+// for testing show errors 
+
+// ini_set('display_errors', 1);
+// ini_set('display_startup_errors', 1);
+// error_reporting(E_ALL);
 
 
 require_once 'assets/includes/connection.php';
@@ -24,7 +26,7 @@ if (!empty($email)) {
             $_SESSION['user'] = $user;
 
             if (isset($_SESSION['errors']['login'])) {
-                session_unset($_SESSION['errors']['login']);
+                unset($_SESSION['errors']['login']);
             }
         } else {
             $_SESSION['errors']['login'] = "La contraseña es incorrecta";

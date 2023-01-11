@@ -8,7 +8,7 @@ if (isset($_POST)) {
         session_start();
     }
 
-    $name = isset($_POST['name']) ? mysqli_real_escape_string($db, $_POST['name']) : false;
+    $name = isset($_POST['name']) ? mysqli_real_escape_string($db, $_POST['name']) : false;   // avoid hack database using special characters
     $surname = isset($_POST['surname']) ? mysqli_real_escape_string($db, $_POST['surname']) : false;
     $email = isset($_POST['email']) ? mysqli_real_escape_string($db, trim($_POST['email'])) : false;
     $password = isset($_POST['password']) ? mysqli_real_escape_string($db, $_POST['password']) : false;
