@@ -167,6 +167,16 @@ header ul li:nth-child(-n + 6) {
     max-height: 60vh;
 }
 
+.mainStructure .lastPosts .title, .mainStructure .lastPosts .description {
+    border: 1px solid gray;
+    padding: 3em;
+    margin: 3em;
+}
+
+.mainStructure .lastPosts .date {
+    text-align: center;
+}
+
 footer {
     background-color: black;
     margin-top: 4em;
