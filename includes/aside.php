@@ -3,24 +3,24 @@
         <h4>Entrar en la web</h4>
         <?php echo isset($_SESSION['errors']['login']) ? "<div class='alert error'>" . $_SESSION['errors']['login'] . "</div>" : ''; ?>
         <?php echo isset($_SESSION['user']) ? "<div class='correct'>Bienvenido " . $_SESSION['user']['name'] . "</div>
-        <a href='./assest/includes/newPost.php'><button class='newPost'>Nuevo blog</button></a>
-        <a href='./assest/includes/newCathegory.php'><button class='newCathegory' >Nueva categoría</button></a>
-        <a href='./assest/includes/userData.php'><button class='userData' >Mis datos</button></a>
-        <a class='closeSession' href='./assets/includes/close.php'><button class='mainButtons'>Salir</button></a>" : ''; ?>
-        <?php echo isset($_SESSION['user']) ? "" : ''; ?>
-        <form method="POST" action="login.php" enctype="multipart/form-data">
-            <div class="formElement">
-                <label for="email">Email:</label>
-                <input type="email" name="email" required />
-            </div>
-            <div class="formElement">
-                <label for="password">Contraseña:</label>
-                <input type="password" name="password" required />
-            </div>
-            <div class="submitInputs">
-                <input type="submit" value="Entrar" />
-            </div>
-        </form>
+        <a href='includes/newPost.php'><button class='newPost'>Nuevo blog</button></a>
+        <a href='includes/newCathegory.php'><button class='newCathegory'>Nueva categoría</button></a>
+        <a href='includes/userData.php'><button class='userData' >Mis datos</button></a>
+        <a class='closeSession' href='./close.php'><button class='mainButtons'>Salir</button></a>" : ''; ?>
+        <?php echo isset($_SESSION['user']) ? ''
+            : '<form method="POST" action="login.php" enctype="multipart/form-data">
+             <div class="formElement">
+                 <label for="email">Email:</label>
+                 <input type="email" name="email" required />
+             </div>
+             <div class="formElement">
+                 <label for="password">Contraseña:</label>
+                 <input type="password" name="password" required />
+             </div>
+             <div class="submitInputs">
+                 <input type="submit" value="Entrar" />
+             </div>
+         </form>'; ?>
     </div>
 
     <div class="">

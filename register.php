@@ -2,7 +2,7 @@
 
 if (isset($_POST)) {
     // connect to db
-    require_once 'assets/includes/connection.php';
+    require_once 'includes/connection.php';
 
     if (!isset($_SESSION)) {
         session_start();

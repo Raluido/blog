@@ -125,8 +125,7 @@ header ul li:nth-child(-n + 6) {
 
 
 .mainStructure form .submitInputs input,
-.mainStructure aside button
- {
+.mainStructure aside button {
     display: block;
     margin: 1em auto 0em auto;
     padding: 0.3em;
@@ -163,18 +162,25 @@ header ul li:nth-child(-n + 6) {
     color: white;
 }
 
-.mainStructure .lastPost {
+.mainStructure .lastPosts {
     max-height: 60vh;
 }
 
-.mainStructure .lastPosts .title, .mainStructure .lastPosts .description {
-    border: 1px solid gray;
-    padding: 3em;
-    margin: 3em;
+.mainStructure .lastPosts h3 {
+    margin-top: 2em;
 }
 
-.mainStructure .lastPosts .date {
-    text-align: center;
+.mainStructure .title {
+    color: cornflowerblue
+}
+
+.mainStructure .description {
+    padding: 2em 2em 0 0;
+    color: black;
+}
+
+.mainStructure .postCathegory {
+    color: #c9c9c9;
 }
 
 footer {

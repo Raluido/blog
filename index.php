@@ -1,4 +1,4 @@
-<?php require_once 'assets/includes/header.php'; ?>
+<?php require_once 'includes/header.php'; ?>
 
 <div class="mainStructure">
     <main>
@@ -7,30 +7,31 @@
                 <h3>Ultimas entradas</h3>
                 <?php
                 $posts = getLastPosts($db);
-                while($post = mysqli_fetch_assoc($posts)) :
+                if (!empty($posts)) :
+                    while ($post = mysqli_fetch_assoc($posts)) :
                 ?>
-                <div class="postCathegory">
-                    <?=$post['name']?>
-                </div>
-                <div class="title">
-                    <?=$post['title']?>
-                </div>
-                <div class="description">
-                    <?=$post['description']?>
-                </div>
-                <div class="date">
-                    <?=$post['date']?>
-                </div>
+                        <a href="">
+                            <h3 class="title">
+                                <?= $post['title'] ?>
+                            </h3>
+                            <p class="postCathegory">
+                                <?= $post['name'] . " | " . $post['date'] ?>
+                            </p>
+                            <p class="description">
+                                <?= substr($post['description'], 0, 300) . "..." ?>
+                            </p>
+                        </a>
                 <?php
-                endwhile
-                ?>  
+                    endwhile;
+                endif;
+                ?>
             </article>
             <div class="showAll">
-                <a href="" class="">Ver todas las entradas</a>       
+                <a href="" class="">Ver todas las entradas</a>
             </div>
         </section>
     </main>
-    <?php require_once 'assets/includes/aside.php'; ?>
+    <?php require_once 'includes/aside.php'; ?>
 </div>
 
-<?php require_once 'assets/includes/footer.php'; ?>
+<?php require_once 'includes/footer.php'; ?>

@@ -43,7 +43,7 @@ function getCathegories($connection) {
 }
 
 function getLastPosts($connection) {
-    $sql = "SELECT p.*, c.* FROM posts p INNER JOIN cathegories c ON p.cathegory_id = c.id ORDER BY p.id";
+    $sql = "SELECT p.*, c.* FROM posts p INNER JOIN cathegories c ON p.cathegory_id = c.id ORDER BY p.id DESC LIMIT 3";
     $posts = mysqli_query($connection, $sql);
 
     $result = array();
