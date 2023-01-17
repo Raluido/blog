@@ -3,10 +3,10 @@
         <h4>Entrar en la web</h4>
         <?php echo isset($_SESSION['errors']['login']) ? "<div class='alert error'>" . $_SESSION['errors']['login'] . "</div>" : ''; ?>
         <?php echo isset($_SESSION['user']) ? "<div class='correct'>Bienvenido " . $_SESSION['user']['name'] . "</div>
-        <a href='includes/newPost.php'><button class='newPost'>Nuevo blog</button></a>
-        <a href='includes/newCathegory.php'><button class='newCathegory'>Nueva categoría</button></a>
-        <a href='includes/userData.php'><button class='userData' >Mis datos</button></a>
-        <a class='closeSession' href='./close.php'><button class='mainButtons'>Salir</button></a>" : ''; ?>
+        <a href='../includes/newPost.php'><button class='newPost'>Nuevo blog</button></a>
+        <a href='../includes/newCathegory.php'><button class='newCathegory'>Nueva categoría</button></a>
+        <a href='../includes/userData.php'><button class='userData' >Mis datos</button></a>
+        <a class='closeSession' href='../close.php'><button class='mainButtons'>Salir</button></a>" : ''; ?>
         <?php echo isset($_SESSION['user']) ? ''
             : '<form method="POST" action="login.php" enctype="multipart/form-data">
              <div class="formElement">
