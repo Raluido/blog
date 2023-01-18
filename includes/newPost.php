@@ -13,7 +13,7 @@
                         $cathegories = getCathegories($db);
                         while ($cathegory = mysqli_fetch_assoc($cathegories)) :
                         ?>
-                            <option value="$cathegory['id']"><?= $cathegory['name'] ?></option>
+                            <option value=<?=$cathegory['id']?>><?= $cathegory['name'] ?></option>
                         <?php endwhile
                         ?>
                     </select>

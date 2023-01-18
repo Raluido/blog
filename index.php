@@ -27,7 +27,7 @@
                 ?>
             </article>
             <div class="showAll">
-                <a href="" class="">Ver todas las entradas</a>
+                <a href="includes/allPosts.php" class="">Ver todas las entradas</a>
             </div>
         </section>
     </main>
