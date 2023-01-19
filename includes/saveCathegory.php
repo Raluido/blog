@@ -17,6 +17,8 @@ if (isset($_POST)) {
     if (count($errors) == 0) {
         $sql = "INSERT INTO cathegories VALUES(NULL, '$name');";
         $save = mysqli_query($db, $sql);
+    } else {
+        $_SESSION['errors'] = $errors;
     }
 }
 

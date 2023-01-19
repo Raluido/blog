@@ -182,10 +182,6 @@ header ul li {
     color: #c9c9c9;
 }
 
-.mainStructure .createCathegory h3 {
-    margin-top: 2em;
-}
-
 .mainStructure .createCathegory form div {
     padding-top: 3em;
 }
@@ -200,6 +196,19 @@ header ul li {
 }
 
 .mainStructure .createPost .submitInputs input {
+    background-color: darkgoldenrod;
+    color: white;
+}
+
+.mainStructure .updateUserData form div {
+    padding-top: 2em;
+}
+
+.mainStructure .updateUserData .submitInputs {
+    display: block;
+    margin: 1em auto 0em auto;
+    padding: 0.3em;
+    cursor: pointer;
     background-color: darkgoldenrod;
     color: white;
 }

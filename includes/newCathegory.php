@@ -1,5 +1,5 @@
-<?php require_once 'redirection.php'; ?>
 <?php require_once 'header.php'; ?>
+<?php require_once 'redirection.php'; ?>
 
 <div class="mainStructure">
     <main>
@@ -14,7 +14,6 @@
                     <input type="submit" value="Añadir" />
                 </div>
             </form>
-
         </section>
     </main>
     <?php require_once 'aside.php'; ?>

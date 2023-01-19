@@ -30,7 +30,8 @@ function deleteErrors()
     return $deleted;
 }
 
-function getCathegories($connection) {
+function getCathegories($connection)
+{
     $sql = "SELECT * FROM cathegories ORDER BY id ASC";
     $cathegories = mysqli_query($connection, $sql);
 
@@ -42,25 +43,41 @@ function getCathegories($connection) {
     return $result;
 }
 
-function getLastPosts($connection) {
+function getLastPosts($connection)
+{
     $sql = "SELECT p.*, c.* FROM posts p INNER JOIN cathegories c ON p.cathegory_id = c.id ORDER BY p.id DESC LIMIT 3";
     $posts = mysqli_query($connection, $sql);
 
     $result = array();
-    if($posts && mysqli_num_rows($posts) >= 1) {
+    if ($posts && mysqli_num_rows($posts) >= 1) {
         $result = $posts;
     }
-    
+
     return $result;
 }
 
-function getAllPosts($connection) {
+function getAllPosts($connection)
+{
     $sql = "SELECT p.*, c.* FROM posts p INNER JOIN cathegories c ON p.cathegory_id = c.id ORDER BY p.id";
     $posts = mysqli_query($connection, $sql);
 
     $result = array();
     if ($posts && mysqli_num_rows($posts) >= 1) {
         $result = $posts;
+    }
+
+    return $result;
+}
+
+function getUserData($connection)
+{
+    $user_id = $_SESSION['user']['id'];
+    $sql = "SELECT * FROM users WHERE users.id = $user_id;";
+    $userDatas = mysqli_query($connection, $sql);
+
+    $result = array();
+    if ($userDatas && mysqli_num_rows($userDatas) >= 1) {
+        $result = $userDatas;
     }
 
     return $result;

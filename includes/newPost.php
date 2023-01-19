@@ -1,5 +1,5 @@
-<?php require_once 'redirection.php'; ?>
 <?php require_once 'header.php'; ?>
+<?php require_once 'redirection.php'; ?>
 
 <div class="mainStructure">
     <main>
@@ -24,7 +24,7 @@
                 </div>
                 <div class="formElement">
                     <label for="description">Texto</label>
-                    <textarea name="description" rows="4" cols="50" required></textarea>
+                    <textarea name="description" rows="4" cols="100" required></textarea>
                 </div>
                 <div class="submitInputs">
                     <input type="submit" value="Enviar" />

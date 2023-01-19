@@ -28,6 +28,8 @@ if (isset($_POST)) {
     if (count($errors) == 0) {
         $sql = "INSERT INTO posts VALUES(NULL, '$user_id', '$cathegory', '$title', '$description', CURDATE());";
         $save = mysqli_query($db, $sql);
+    } else {
+        $_SESSION['errors'] = $errors;
     }
 }
 
