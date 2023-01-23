@@ -13,7 +13,7 @@
                         $cathegories = getCathegories($db);
                         while ($cathegory = mysqli_fetch_assoc($cathegories)) :
                         ?>
-                            <option value=<?=$cathegory['id']?>><?= $cathegory['name'] ?></option>
+                            <option value=<?= $cathegory['id'] ?>><?= $cathegory['name'] ?></option>
                         <?php endwhile
                         ?>
                     </select>
@@ -21,16 +21,19 @@
                 <div class="formElement">
                     <label for="title">Título</label>
                     <input type="text" name="title" required />
+                    <?php echo isset($_SESSION['errors']['title']) ? showError($_SESSION['errors'], 'title') : '' ?>
+
                 </div>
                 <div class="formElement">
                     <label for="description">Texto</label>
                     <textarea name="description" rows="4" cols="100" required></textarea>
+                    <?php echo isset($_SESSION['errors']['description']) ? showError($_SESSION['errors'], 'description') : '' ?>
                 </div>
                 <div class="submitInputs">
                     <input type="submit" value="Enviar" />
                 </div>
             </form>
-
+            <?php deleteErrors(); ?>
         </section>
     </main>
     <?php require_once 'aside.php'; ?>

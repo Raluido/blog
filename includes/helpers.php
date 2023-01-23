@@ -27,6 +27,12 @@ function deleteErrors()
         $deleted = true;
     }
 
+    if (isset($_SESSION['sended'])) {
+        $_SESSION['sended'] = null;
+        unset($_SESSION['sended']);
+        $deleted = true;
+    }
+
     return $deleted;
 }
 

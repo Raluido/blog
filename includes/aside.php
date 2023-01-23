@@ -23,9 +23,9 @@
          </form>'; ?>
     </div>
 
-    <div class="">
+    <div class="" id="registerDiv">
         <h4>Regístrate</h4>
-        <?php echo isset($_SESSION['completed']) ? "<div class='alert error'>" . $_SESSION['completed'] . "</div>" : ''; ?>
+        <?php echo isset($_SESSION['completed']) ? "<div class=''>" . $_SESSION['completed'] . "</div>" : ''; ?>
         <?php echo isset($_SESSION['errors']['general']) ? "<div class='alert error'>" . $_SESSION['errors']['general'] . "</div>" : ''; ?>
         <form method="POST" action="register.php" enctype="multipart/form-data">
             <div class="formElement">

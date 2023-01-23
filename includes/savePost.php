@@ -28,9 +28,10 @@ if (isset($_POST)) {
     if (count($errors) == 0) {
         $sql = "INSERT INTO posts VALUES(NULL, '$user_id', '$cathegory', '$title', '$description', CURDATE());";
         $save = mysqli_query($db, $sql);
+        $_SESSION['sended'] = "El post se ha subido correctamente";
+        header("Location: ../index.php");
     } else {
         $_SESSION['errors'] = $errors;
+        header("Location: ./newPost.php");
     }
 }
-
-header("Location: ../index.php");

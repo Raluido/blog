@@ -1,5 +1,5 @@
-<?php require_once 'redirection.php'; ?>
 <?php require_once 'header.php'; ?>
+<?php require_once 'redirection.php'; ?>
 
 <div class="mainStructure">
     <main>
@@ -18,7 +18,7 @@
                             <?= $allPost['name'] . " | " . $allPost['date'] ?>
                         </p>
                         <p class="description">
-                            <?= substr($allPost['description'], 0, 300) . "..." ?>
+                            <?= $allPost['description'] ?>
                         </p>
                     </a>
             <?php

@@ -119,6 +119,10 @@ header ul li {
     margin-top: 1em;
 }
 
+/* .registerNone {
+    display: none;
+} */
+
 .mainStructure .formElement label {
     margin-top: 1em;
 }
@@ -211,6 +215,10 @@ header ul li {
     cursor: pointer;
     background-color: darkgoldenrod;
     color: white;
+}
+
+.mainStructure .allPosts h3 {
+    margin-top: 2em;
 }
 
 footer {

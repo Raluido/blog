@@ -5,6 +5,7 @@
         <section class="lastPosts">
             <article>
                 <h3>Ultimas entradas</h3>
+                <?php echo isset($_SESSION['sended']) ? "<div class=''>" . $_SESSION['sended'] . "</div>" : '' ?>
                 <?php
                 $posts = getLastPosts($db);
                 if (!empty($posts)) :
