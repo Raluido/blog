@@ -25,6 +25,14 @@
         </div>
     </div>
 </footer>
+<script type="text/javascript">
+    <?php $session = $_SESSION['user']['id'] ?>
+    var x = "<?php echo "$session" ?>";
+    var element = document.getElementById("registerNone");
+    if (x) {
+        element.classList.add("registerDiv");
+    }
+</script>
 </body>
 
 </html>

@@ -67,6 +67,10 @@ if (isset($_POST)) {
         try {
             mysqli_query($db, $sql);
             $_SESSION['completed'] = "Se han actualizado los datos";
+            $_SESSION['user']['name'] = $name;
+            $_SESSION['user']['surname'] = $surname;
+            $_SESSION['user']['email'] = $email;
+            $_SESSION['user']['password'] = $savePassword;
         } catch (\Throwable $th) {
             $_SESSION['errors']['general'] = "Fallo al actualizar el usuario";
         }

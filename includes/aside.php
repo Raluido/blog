@@ -23,7 +23,7 @@
          </form>'; ?>
     </div>
 
-    <div class="" id="registerDiv">
+    <div class="" id="registerNone">
         <h4>Regístrate</h4>
         <?php echo isset($_SESSION['completed']) ? "<div class=''>" . $_SESSION['completed'] . "</div>" : ''; ?>
         <?php echo isset($_SESSION['errors']['general']) ? "<div class='alert error'>" . $_SESSION['errors']['general'] . "</div>" : ''; ?>
