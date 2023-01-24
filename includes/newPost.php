@@ -26,7 +26,7 @@
                 </div>
                 <div class="formElement">
                     <label for="description">Texto</label>
-                    <textarea name="description" rows="4" cols="100" required></textarea>
+                    <textarea name="description" required></textarea>
                     <?php echo isset($_SESSION['errors']['description']) ? showError($_SESSION['errors'], 'description') : '' ?>
                 </div>
                 <div class="submitInputs">

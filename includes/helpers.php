@@ -17,19 +17,16 @@ function deleteErrors()
 
     if (isset($_SESSION['errors'])) {
         $_SESSION['errors'] = null;
-        unset($_SESSION['errors']);
         $deleted = true;
     }
 
     if (isset($_SESSION['completed'])) {
         $_SESSION['completed'] = null;
-        unset($_SESSION['completed']);
         $deleted = true;
     }
 
     if (isset($_SESSION['sended'])) {
         $_SESSION['sended'] = null;
-        unset($_SESSION['sended']);
         $deleted = true;
     }
 
