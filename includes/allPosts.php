@@ -10,7 +10,7 @@
             if (!empty($allPosts)) :
                 while ($allPost = mysqli_fetch_assoc($allPosts)) :
             ?>
-                    <a href="">
+                    <a href="post.php?id=<?=$allPost['id']?>">
                         <h3 class="title">
                             <?= $allPost['title'] ?>
                         </h3>

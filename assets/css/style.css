@@ -195,7 +195,7 @@ header ul li {
 }
 
 .mainStructure .description {
-    padding: 2em 2em 0 0;
+    padding: 2em 2em 3em 0;
     color: black;
 }
 
@@ -241,6 +241,14 @@ header ul li {
 
 .mainStructure .allPosts h3 {
     margin-top: 2em;
+}
+
+.mainStructure .postBySection h3 {
+    margin-top: 2em;
+}
+
+.mainStructure .postBySection div {
+    margin: 4em 0 3em 0;
 }
 
 footer {

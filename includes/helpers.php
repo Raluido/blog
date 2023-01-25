@@ -46,11 +46,10 @@ function getCathegories($connection)
     return $result;
 }
 
-function getPosts($connection, $limit = null)
+function getPosts($connection, $limit = null, $cathegoryId = null)
 {
-    $sql = "SELECT p.*, c.* FROM posts p INNER JOIN cathegories c ON p.cathegory_id = c.id ORDER BY p.id DESC" . " " . $limit;
+    $sql = "SELECT posts.*, cathegories.name FROM posts INNER JOIN cathegories ON posts.cathegory_id = cathegories.id " . $cathegoryId . " ORDER BY posts.id DESC" . " " . $limit;
     $posts = mysqli_query($connection, $sql);
-
     $result = array();
     if ($posts && mysqli_num_rows($posts) >= 1) {
         $result = $posts;
@@ -59,14 +58,28 @@ function getPosts($connection, $limit = null)
     return $result;
 }
 
-function getPostsByCathegories($connection, $cathegoryId)
+function getPost($connection, $postId)
 {
-    $sql = "SELECT p.*, c.* FROM posts p INNER JOIN cathegories c ON p.cathegory_id = c.id WHERE p.cathegory_id = $cathegoryId;";
-    $posts = mysqli_query($connection, $sql);
+    $sql = "SELECT posts.*, cathegories.name FROM posts INNER JOIN cathegories ON posts.cathegory_id = cathegories.id WHERE posts.id = $postId ORDER BY posts.id DESC";
+    $post = mysqli_query($connection, $sql);
 
     $result = array();
-    if ($posts && mysqli_num_rows($posts) >= 1) {
-        $result = $posts;
+    if ($post && mysqli_num_rows($post) >= 1) {
+        $result = mysqli_fetch_assoc($post);
+    }
+
+    return $result;
+}
+
+
+function getCathegory($connection, $cathegoryId)
+{
+    $sql = "SELECT * FROM cathegories WHERE id = $cathegoryId;";
+    $cathegories = mysqli_query($connection, $sql);
+
+    $result = array();
+    if ($cathegories && mysqli_num_rows($cathegories) >= 1) {
+        $result = mysqli_fetch_assoc($cathegories);
     }
 
     return $result;

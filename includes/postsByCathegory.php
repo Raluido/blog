@@ -1,40 +1,44 @@
-<?php require_once 'header.php'; ?>
 <?php require_once 'connection.php'; ?>
+<?php require_once 'header.php'; ?>
 <?php
-$postsByCathegories = getPostsByCathegories($db, $_GET['id']);
-if (!isset($postsByCathegories)) {
-    header('Location: index.php');
+$cathegory = getCathegory($db, $_GET['id']);
+if (!isset($cathegory['id'])) {
+    header("Location: ../index.php");
 }
 ?>
 <?php require_once 'header.php'; ?>
-<?php require_once 'redirection.php'; ?>
 
 <div class="mainStructure">
     <main>
-        <section class="allPosts">
-            <h3>Posts por categorías</h3>
-            <?php
-            if (!empty($postsByCathegories) || null) :
-                while ($postsByCathegory = mysqli_fetch_assoc($postsByCathegories)) :
-            ?>
-                    <a href="">
-                        <h3 class="title">
-                            <?= $postsByCathegory['title'] ?>
-                        </h3>
-                        <p class="postCathegory">
-                            <?= $postsByCathegory['name'] . " | " . $postsByCathegory['date'] ?>
-                        </p>
-                        <p class="description">
-                            <?= $postsByCathegory['description'] ?>
-                        </p>
-                    </a>
-            <?php
-                endwhile;
-            endif;
-            ?>
+        <section class="postBySection">
+            <article>
+                <h3>Entrada de <?= $cathegory['name'] ?></h3>
+                <?php
+                $postBySection = getPosts($db, $limit, "WHERE posts.cathegory_id = " . $cathegory['id']);
+                if (!empty($postBySection)) :
+                    while ($post = mysqli_fetch_assoc($postBySection)) :
+                ?>
+                        <a href="post.php?id=<?=$post['id']?>">
+                            <h3 class="title">
+                                <?= $post['title'] ?>
+                            </h3>
+                            <p class="postCathegory">
+                                <?= $post['name'] . " | " . $post['date'] ?>
+                            </p>
+                            <p class="description">
+                                <?= substr($post['description'], 0, 300) . "..." ?>
+                            </p>
+                        </a>
+                <?php
+                    endwhile;
+                else :
+                    echo "<div class='alert alert-error'>No hay entradas en ésta categoría...</div>";
+                endif;
+                ?>
+            </article>
         </section>
     </main>
-    <?php require_once 'aside.php'; ?>
+    <?php require_once 'includes/aside.php'; ?>
 </div>
 
-<?php require_once 'footer.php'; ?>
+<?php require_once 'includes/footer.php'; ?>

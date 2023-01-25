@@ -12,7 +12,7 @@
                 if (!empty($posts)) :
                     while ($post = mysqli_fetch_assoc($posts)) :
                 ?>
-                        <a href="">
+                        <a href="./includes/post.php?id=<?= $post['id'] ?>">
                             <h3 class="title">
                                 <?= $post['title'] ?>
                             </h3>
