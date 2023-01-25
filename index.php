@@ -7,7 +7,8 @@
                 <h3>Ultimas entradas</h3>
                 <?php echo isset($_SESSION['sended']) ? "<div class=''>" . $_SESSION['sended'] . "</div>" : '' ?>
                 <?php
-                $posts = getLastPosts($db);
+                $limit = "LIMIT 3";
+                $posts = getPosts($db, $limit);
                 if (!empty($posts)) :
                     while ($post = mysqli_fetch_assoc($posts)) :
                 ?>

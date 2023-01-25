@@ -46,9 +46,9 @@ function getCathegories($connection)
     return $result;
 }
 
-function getLastPosts($connection)
+function getPosts($connection, $limit = null)
 {
-    $sql = "SELECT p.*, c.* FROM posts p INNER JOIN cathegories c ON p.cathegory_id = c.id ORDER BY p.id DESC LIMIT 3";
+    $sql = "SELECT p.*, c.* FROM posts p INNER JOIN cathegories c ON p.cathegory_id = c.id ORDER BY p.id DESC" . " " . $limit;
     $posts = mysqli_query($connection, $sql);
 
     $result = array();
@@ -59,9 +59,9 @@ function getLastPosts($connection)
     return $result;
 }
 
-function getAllPosts($connection)
+function getPostsByCathegories($connection, $cathegoryId)
 {
-    $sql = "SELECT p.*, c.* FROM posts p INNER JOIN cathegories c ON p.cathegory_id = c.id ORDER BY p.id";
+    $sql = "SELECT p.*, c.* FROM posts p INNER JOIN cathegories c ON p.cathegory_id = c.id WHERE p.cathegory_id = $cathegoryId;";
     $posts = mysqli_query($connection, $sql);
 
     $result = array();

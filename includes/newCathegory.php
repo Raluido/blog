@@ -9,6 +9,7 @@
                 <div class="formElement">
                     <label for="name">Nombre de la categoría</label>
                     <input type="text" name="name" required />
+                    <?php echo isset($_SESSION['errors']['name']) ? showError($_SESSION['errors'], 'name') : ''; ?>
                 </div>
                 <div class="submitInputs">
                     <input type="submit" value="Añadir" />

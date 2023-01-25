@@ -30,10 +30,11 @@ if (isset($_POST)) {
         $validatedEmail = true;
 
         $user_id = $_SESSION['user']['id'];
-        $query = "SELECT email FROM users WHERE email = '$email'";
-        $emails = mysqli_query($db, $query);
+        $query = "SELECT * FROM users WHERE email = '$email'";
+        $sql = mysqli_query($db, $query);
+        $emailCheck = mysqli_fetch_assoc($sql);
 
-        if ($emails) {
+        if ($emailCheck && $user_id != $emailCheck['id']) {
             $errors['email'] = "Ese email ya está en nuestra base de datos";
         }
     } else {

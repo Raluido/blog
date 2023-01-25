@@ -7,7 +7,7 @@
             <h3>Mis datos</h3>
             <form action="updateUserData.php" method="POST">
                 <?php echo isset($_SESSION['completed']) ? "<div>" . $_SESSION['completed'] . "<div>" : '' ?>
-                <?php showError($errors, 'general') ?>
+                <?php echo isset($_SESSION['errors']['general']) ? showError($_SESSION['errors'], 'general') : '' ?>
                 <div class="">
                     <label for="name">Nombre</label>
                     <input type="text" name="name" value=<?= $_SESSION['user']['name']; ?> required />

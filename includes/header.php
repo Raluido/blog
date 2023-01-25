@@ -35,7 +35,7 @@
                     while ($cathegory = mysqli_fetch_assoc($cathegories)) :
                 ?>
                         <li>
-                            <a href="cathegory.php?id=<?= $cathegory['id'] ?>"><?= $cathegory['name'] ?></a>
+                            <a href="/includes/postsByCathegory.php?id=<?= $cathegory['id'] ?>"><?= $cathegory['name'] ?></a>
                         </li>
                 <?php
                     endwhile;

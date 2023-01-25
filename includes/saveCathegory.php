@@ -22,4 +22,4 @@ if (isset($_POST)) {
     }
 }
 
-header("Location: ../index.php");
+header("Location: newCathegory.php");

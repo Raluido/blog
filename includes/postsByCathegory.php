@@ -1,24 +1,31 @@
 <?php require_once 'header.php'; ?>
+<?php require_once 'connection.php'; ?>
+<?php
+$postsByCathegories = getPostsByCathegories($db, $_GET['id']);
+if (!isset($postsByCathegories)) {
+    header('Location: index.php');
+}
+?>
+<?php require_once 'header.php'; ?>
 <?php require_once 'redirection.php'; ?>
 
 <div class="mainStructure">
     <main>
         <section class="allPosts">
-            <h3>Todos los Posts por categorías</h3>
+            <h3>Posts por categorías</h3>
             <?php
-            $allPosts = getPosts($db, false);
-            if (!empty($allPosts)) :
-                while ($allPost = mysqli_fetch_assoc($allPosts)) :
+            if (!empty($postsByCathegories) || null) :
+                while ($postsByCathegory = mysqli_fetch_assoc($postsByCathegories)) :
             ?>
                     <a href="">
                         <h3 class="title">
-                            <?= $allPost['title'] ?>
+                            <?= $postsByCathegory['title'] ?>
                         </h3>
                         <p class="postCathegory">
-                            <?= $allPost['name'] . " | " . $allPost['date'] ?>
+                            <?= $postsByCathegory['name'] . " | " . $postsByCathegory['date'] ?>
                         </p>
                         <p class="description">
-                            <?= $allPost['description'] ?>
+                            <?= $postsByCathegory['description'] ?>
                         </p>
                     </a>
             <?php
