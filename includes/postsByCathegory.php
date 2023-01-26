@@ -14,7 +14,7 @@ if (!isset($cathegory['id'])) {
             <article>
                 <h3>Entrada de <?= $cathegory['name'] ?></h3>
                 <?php
-                $postBySection = getPosts($db, $limit, "WHERE posts.cathegory_id = " . $cathegory['id']);
+                $postBySection = getPosts($db, null, "WHERE posts.cathegory_id = " . $cathegory['id']);
                 if (!empty($postBySection)) :
                     while ($post = mysqli_fetch_assoc($postBySection)) :
                 ?>
@@ -38,7 +38,7 @@ if (!isset($cathegory['id'])) {
             </article>
         </section>
     </main>
-    <?php require_once 'includes/aside.php'; ?>
+    <?php require_once '../includes/aside.php'; ?>
 </div>
 
-<?php require_once 'includes/footer.php'; ?>
+<?php require_once '../includes/footer.php'; ?>

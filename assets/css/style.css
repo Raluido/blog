@@ -251,6 +251,10 @@ header ul li {
     margin: 4em 0 3em 0;
 }
 
+.mainStructure .post h3 {
+    margin-top: 2em;
+}
+
 footer {
     background-color: black;
     margin-top: 4em;

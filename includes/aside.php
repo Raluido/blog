@@ -8,7 +8,7 @@
         <a href='../includes/userData.php'><button class='userData' >Mis datos</button></a>
         <a class='closeSession' href='../close.php'><button class='mainButtons'>Salir</button></a>" : ''; ?>
         <?php echo isset($_SESSION['user']) ? ''
-            : '<form method="POST" action="login.php" enctype="multipart/form-data">
+            : '<form method="POST" action="../login.php" enctype="multipart/form-data">
              <div class="formElement">
                  <label for="email">Email:</label>
                  <input type="email" name="email" required />

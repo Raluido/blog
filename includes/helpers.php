@@ -60,7 +60,9 @@ function getPosts($connection, $limit = null, $cathegoryId = null)
 
 function getPost($connection, $postId)
 {
-    $sql = "SELECT posts.*, cathegories.name FROM posts INNER JOIN cathegories ON posts.cathegory_id = cathegories.id WHERE posts.id = $postId ORDER BY posts.id DESC";
+    $sql = "SELECT p.*, c.name AS cathegory, CONCAT(u.name, ' ', u.surname) " .
+    "AS user FROM posts p INNER JOIN cathegories c ON p.cathegory_id = c.id " .
+    "INNER JOIN users u ON u.id = p.user_id WHERE p.id = $postId ORDER BY p.id DESC";
     $post = mysqli_query($connection, $sql);
 
     $result = array();
