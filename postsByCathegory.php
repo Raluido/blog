@@ -1,12 +1,12 @@
-<?php require_once 'connection.php'; ?>
-<?php require_once 'header.php'; ?>
+<?php require_once 'includes/connection.php'; ?>
+<?php require_once 'includes/header.php'; ?>
 <?php
 $cathegory = getCathegory($db, $_GET['id']);
 if (!isset($cathegory['id'])) {
     header("Location: ../index.php");
 }
 ?>
-<?php require_once 'header.php'; ?>
+<?php require_once 'includes/header.php'; ?>
 
 <div class="mainStructure">
     <main>
@@ -14,7 +14,7 @@ if (!isset($cathegory['id'])) {
             <article>
                 <h3>Entrada de <?= $cathegory['name'] ?></h3>
                 <?php
-                $postBySection = getPosts($db, null, "WHERE posts.cathegory_id = " . $cathegory['id']);
+                $postBySection = getPosts($db, null, $cathegory['id']);
                 if (!empty($postBySection)) :
                     while ($post = mysqli_fetch_assoc($postBySection)) :
                 ?>
@@ -38,7 +38,7 @@ if (!isset($cathegory['id'])) {
             </article>
         </section>
     </main>
-    <?php require_once '../includes/aside.php'; ?>
+    <?php require_once 'includes/aside.php'; ?>
 </div>
 
-<?php require_once '../includes/footer.php'; ?>
+<?php require_once 'includes/footer.php'; ?>

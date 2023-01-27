@@ -46,9 +46,27 @@ function getCathegories($connection)
     return $result;
 }
 
-function getPosts($connection, $limit = null, $cathegoryId = null)
+function getPosts($connection, $limit = null, $cathegoryId = null, $searchs = null)
 {
-    $sql = "SELECT posts.*, cathegories.name FROM posts INNER JOIN cathegories ON posts.cathegory_id = cathegories.id " . $cathegoryId . " ORDER BY posts.id DESC" . " " . $limit;
+    $sql = "SELECT posts.*, cathegories.name FROM posts INNER JOIN cathegories ON " .
+        "posts.cathegory_id = cathegories.id";
+
+
+    if ($cathegoryId) {
+        $sql .= " WHERE posts.cathegory_id = " . $cathegoryId;
+    }
+
+    if ($searchs) {
+        $sql .= " WHERE posts.title LIKE '%$searchs%' ";
+    }
+
+    $sql .= " ORDER BY posts.id DESC";
+
+    if ($limit) {
+        $sql .= " LIMIT " . $limit;
+    }
+
+
     $posts = mysqli_query($connection, $sql);
     $result = array();
     if ($posts && mysqli_num_rows($posts) >= 1) {
@@ -61,8 +79,8 @@ function getPosts($connection, $limit = null, $cathegoryId = null)
 function getPost($connection, $postId)
 {
     $sql = "SELECT p.*, c.name AS cathegory, CONCAT(u.name, ' ', u.surname) " .
-    "AS user FROM posts p INNER JOIN cathegories c ON p.cathegory_id = c.id " .
-    "INNER JOIN users u ON u.id = p.user_id WHERE p.id = $postId ORDER BY p.id DESC";
+        "AS user FROM posts p INNER JOIN cathegories c ON p.cathegory_id = c.id " .
+        "INNER JOIN users u ON u.id = p.user_id WHERE p.id = $postId ORDER BY p.id DESC";
     $post = mysqli_query($connection, $sql);
 
     $result = array();

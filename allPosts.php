@@ -1,5 +1,5 @@
-<?php require_once 'header.php'; ?>
-<?php require_once 'redirection.php'; ?>
+<?php require_once 'includes/header.php'; ?>
+<?php require_once 'includes/redirection.php'; ?>
 
 <div class="mainStructure">
     <main>
@@ -10,24 +10,24 @@
             if (!empty($allPosts)) :
                 while ($allPost = mysqli_fetch_assoc($allPosts)) :
             ?>
-                    <a href="post.php?id=<?=$allPost['id']?>">
+                    <a href="post.php?id=<?= $allPost['id'] ?>">
                         <h3 class="title">
                             <?= $allPost['title'] ?>
                         </h3>
                         <p class="postCathegory">
                             <?= $allPost['name'] . " | " . $allPost['date'] ?>
                         </p>
-                        <p class="description">
-                            <?= $allPost['description'] ?>
-                        </p>
                     </a>
+                    <p class="description">
+                        <?= $allPost['description'] ?>
+                    </p>
             <?php
                 endwhile;
             endif;
             ?>
         </section>
     </main>
-    <?php require_once 'aside.php'; ?>
+    <?php require_once 'includes/aside.php'; ?>
 </div>
 
-<?php require_once 'footer.php'; ?>
+<?php require_once 'includes/footer.php'; ?>

@@ -1,5 +1,5 @@
 <?php
-require_once '../includes/connection.php';
+require_once 'includes/connection.php';
 $userId = $_SESSION['user']['id'];
 $postId = $_GET['id'];
 if (isset($_SESSION['user']) && $_GET['id']) {
@@ -7,4 +7,4 @@ if (isset($_SESSION['user']) && $_GET['id']) {
     mysqli_query($db, $query);
 }
 
-header('Location: ../index.php');
+header('Location: index.php');

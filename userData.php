@@ -1,5 +1,5 @@
-<?php require_once 'header.php'; ?>
-<?php require_once 'redirection.php'; ?>
+<?php require_once 'includes/header.php'; ?>
+<?php require_once 'includes/redirection.php'; ?>
 
 <div class="mainStructure">
     <main>
@@ -39,7 +39,7 @@
             <?php deleteErrors(); ?>
         </section>
     </main>
-    <?php require_once 'aside.php'; ?>
+    <?php require_once 'includes/aside.php'; ?>
 </div>
 
-<?php require_once 'footer.php'; ?>
+<?php require_once 'includes/footer.php'; ?>

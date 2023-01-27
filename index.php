@@ -3,33 +3,33 @@
 <div class="mainStructure">
     <main>
         <section class="lastPosts">
-            <article>
-                <h3>Ultimas entradas</h3>
-                <?php echo isset($_SESSION['sended']) ? "<div class=''>" . $_SESSION['sended'] . "</div>" : '' ?>
-                <?php
-                $limit = "LIMIT 3";
-                $posts = getPosts($db, $limit);
-                if (!empty($posts)) :
-                    while ($post = mysqli_fetch_assoc($posts)) :
-                ?>
-                        <a href="./includes/post.php?id=<?= $post['id'] ?>">
+            <h3>Ultimas entradas</h3>
+            <?php echo isset($_SESSION['sended']) ? "<div class=''>" . $_SESSION['sended'] . "</div>" : '' ?>
+            <?php
+            $limit = "3";
+            $posts = getPosts($db, $limit);
+            if (!empty($posts)) :
+                while ($post = mysqli_fetch_assoc($posts)) :
+            ?>
+                    <article>
+                        <a href="./post.php?id=<?= $post['id'] ?>">
                             <h3 class="title">
                                 <?= $post['title'] ?>
                             </h3>
                             <p class="postCathegory">
                                 <?= $post['name'] . " | " . $post['date'] ?>
                             </p>
-                            <p class="description">
-                                <?= substr($post['description'], 0, 300) . "..." ?>
-                            </p>
                         </a>
-                <?php
-                    endwhile;
-                endif;
-                ?>
-            </article>
+                        <p class="description">
+                            <?= substr($post['description'], 0, 300) . "..." ?>
+                        </p>
+                    </article>
+            <?php
+                endwhile;
+            endif;
+            ?>
             <div class="showAll">
-                <a href="includes/allPosts.php" class="">Ver todas las entradas</a>
+                <a href="allPosts.php" class="">Ver todas las entradas</a>
             </div>
         </section>
     </main>
