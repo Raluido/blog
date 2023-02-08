@@ -3,7 +3,7 @@
 <div class="mainStructure">
     <main>
         <section class="lastPosts">
-            <h3>Ultimas entradas</h3>
+            <h3>Últimas entradas</h3>
             <?php echo isset($_SESSION['sended']) ? "<div class=''>" . $_SESSION['sended'] . "</div>" : '' ?>
             <?php
             $limit = "3";
